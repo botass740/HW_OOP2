@@ -5,6 +5,28 @@ import ru.netology.javaqamvn.Radio;
 public class RadioTest {
 
     @Test
+    public void shouldUnderMaxStation() {
+        Radio radio = new Radio(20);
+
+        radio.setCurrentStation(15);
+
+        int expected = 15;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldAboveMaxStation() {
+        Radio radio = new Radio(10);
+
+        radio.setCurrentStation(15);
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSetStation() {
         Radio radio = new Radio();
 
@@ -111,7 +133,7 @@ public class RadioTest {
         int expected = 7;
         int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);
-     }
+    }
 
     @Test
     public void shouldNextBorderFirstStation() {
@@ -174,7 +196,7 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldPrevBorderBackToTheLastOneStation() {
+    public void shouldPrevBorderBackLastOneStation() {
         Radio radio = new Radio();
         radio.setCurrentStation(0);
 
